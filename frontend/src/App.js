@@ -12,7 +12,7 @@ function App() {
       <Switch>
         <Route path='/' exact component={HomePage} />
         <Route path='/explore' exact component={Google} />
-        {/* <Route path='/login' exact component={LoginPage} /> */}
+        <Route path='/login' exact component={LoginPage} />
         <Route path='/' render={() => <div>404 Not Found</div>} />
       </Switch>
     </div>

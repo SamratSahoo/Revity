@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./LoginBox.css";
 import googleLogo from '../../../../src/assets/google_logo.png';
-import { getAnalytics } from "firebase/analytics";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import dotenv from "dotenv";
 import { initializeApp } from "firebase/app";
@@ -12,8 +11,6 @@ class LoginBox extends Component {
         super();
         dotenv.config();
     }
-
-    
 
     loginGoogle() {
         const firebaseConfig = {
@@ -27,7 +24,6 @@ class LoginBox extends Component {
         };
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
         const provider = new GoogleAuthProvider();
         const auth = getAuth();        
         signInWithPopup(auth, provider)
@@ -36,7 +32,6 @@ class LoginBox extends Component {
           const token = credential.accessToken;
           const user = result.user;
           // API CALL HERE
-            
         }).catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
