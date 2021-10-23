@@ -1,6 +1,6 @@
 ## Backend Endpoints
 
-**Endpoint:** `/`
+**Endpoint:** `/`✅
 * **Type**: `GET`
 * **Parameters:**
     * `None`
@@ -10,7 +10,7 @@
     * `Success`: Whether the API works (Boolean)
 * **Description:** Health Check Endpoint -- use this to check if the API actually works
 ---
-**Endpoint:** `/user/signUp`
+**Endpoint:** `/user/signUp`✅
 * **Type**: `POST`
 * **Parameters:**
     * `name`: Name of user (String)
@@ -22,7 +22,7 @@
     * `Success`: Whether the data was added successfully (Boolean)
 * **Description:** POST request to add a new user to firestore when they sign up
 ---
-**Endpoint:** `/operation/addOperation`
+**Endpoint:** `/operation/addOperation` ✅
 * **Type**: `POST`
 * **Parameters:**
     * `beforePrice`: Price of operation before insurance (Number)
@@ -35,7 +35,7 @@
     * `Success`: Whether the data was added successfully (Boolean)
 * **Description:** POST request to add a new operation to a specified hospital
 ---
-**Endpoint:** `/hospital/addHospital`
+**Endpoint:** `/hospital/addHospital` ✅
 * **Type**: `POST`
 * **Parameters:**
     * `name`: Name of the hospital (String)
@@ -46,7 +46,7 @@
     * `Success`: Whether the data was added successfully (Boolean)
 * **Description:** POST request to add a new hospital
 ---
-`/hospital/readAllHospitals`
+`/hospital/readAllHospitals` ✅
 * **Type**: `GET`
 * **Parameters:**
     * `None`

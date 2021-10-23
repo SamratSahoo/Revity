@@ -64,49 +64,48 @@ const Styles = styled.div`
 
 function Form() {
  const { register, handleRegister } = useForm();
+ const [address, updateAddress] = React.useState("");
+ const [beforePrice, updateBeforePrice] = React.useState(0);
+ const [afterPrice, updateAfterPrice] = React.useState(0);
+ const [insurace, updateInsurance] = React.useState("");
+ const [operation, updateOperation] = React.useState("");
 
-//  const handleSubmit = (e, data) => {
-//      e.preventDefault();
-//      console.log(data);
-//      alert('Submitted');
-     
-//  }
+ const handleSubmit = (e) => {
+  const url = "http://revit-publi-1xstsu1e3rgne-1394708788.us-east-2.elb.amazonaws.com/";
+  axios.post(url + 'operation/addOperation', {
+      beforePrice: beforePrice,
+      afterPrice: afterPrice,
+      insurance: insurace,
+      userId: window.sessionStorage.getItem("UserId"),
+      operationName: operation,
+      hospitalAddress: address
+  }, {
+     headers: {
+         "Content-Type": "application/json",
+         "Access-Control-Allow-Origin": "*"
+     }
+ }).then((response) => {
+     console.log(response);
+ });
+  alert('Submitted');
 
- const saveData = (data) => {
-     const url = "http://revit-publi-1xstsu1e3rgne-1394708788.us-east-2.elb.amazonaws.com/";
-     axios.post(url + 'operations/addOperations', {
-         beforePrice: data.withoutinsurance,
-         afterPrice: data.withinsurance,
-         insurance: data.insurancename,
-         userId: window.sessionStorage.getItem("UserId"),
-         operationName: data.operation,
-         hospitalAddress: data.streetaddress
-     }, {
-        headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*"
-        }
-    }).then((response) => {
-        console.log(response);
-    });
-     alert('Submitted');
- }
+}
 
  return (
      <div>
     <Navbar/>
-   <form onSubmit={(data) => saveData(data)} >
+   <form onSubmit={handleSubmit} >
      <h2>Input Operation Data</h2>
      <label>Hospital Street Address</label>
-     <input {...register("streetaddress", { required: true })} />
+     <input {...register("streetaddress", { required: true })} onChange={(event) => updateAddress(event.target.value)} />
      <label>Operation</label>
-     <input {...register("operation", { required: true })} />
+     <input {...register("operation", { required: true })} onChange={(event) => updateOperation(event.target.value)}/>
      <label>Price without Insurance</label>
-     <input {...register("withoutinsurance", { required: true })} />
+     <input {...register("withoutinsurance", { required: true })} onChange={(event) => updateBeforePrice(event.target.value)}/>
      <label>Insurance Company</label>
-     <input {...register("insurancename", { required: false })} />
+     <input {...register("insurancename", { required: false })} onChange={(event) => updateInsurance(event.target.value)}/>
      <label>Price with Insurance</label>
-     <input {...register("withinsurance", { required: false })} />
+     <input {...register("withinsurance", { required: false })} onChange={(event) => updateAfterPrice(event.target.value)}/>
      <input type="submit" className="submitButton" />
    </form>
    <Footer/>

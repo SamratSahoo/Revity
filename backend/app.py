@@ -34,11 +34,9 @@ def createUser():
         # age = request.json["age"]
         socialId = request.json["socialId"]
         if len(list(db.collection("Users").where("Email", "==", email).stream())) > 0:
-            print("HELLO WORLD")
             return {"Success": True,
                     "Info": list(db.collection("Users").where("Email", "==", email).stream())[0].to_dict()}
         else:
-            print("BYE WORLD")
             document = db.collection("Users").document()
             document.set({
                 "Name": name,
@@ -64,9 +62,9 @@ def createOperation():
         operationName = request.json["operationName"]
         hospitalAddress = request.json['hospitalAddress']
         hospitalId = list(db.collection("Hospitals").where("Address1", "==", hospitalAddress).stream())[
-            0].to_dict().get('id')
-
+            0].to_dict()
         if hospitalId != None:
+            hospitalId = hospitalId.get('id')
             operationDocument = db.collection("Operations").document()
             operationDocument.set({
                 "BeforePrice": priceBefore,
@@ -78,12 +76,9 @@ def createOperation():
                 "id": operationDocument.id
             })
 
-            hospitalCollection = db.collection("hospitalDocument")
-            operationsUpdate = hospitalCollection.document(hospitalId).get().to_dict().get("Operations") \
-                .append(operationDocument.id)
-
+            hospitalCollection = db.collection("Hospitals")
             hospitalCollection.document(hospitalId).update({
-                "Operations": operationsUpdate
+                "Operations": firestore.ArrayUnion([operationDocument.id])
             })
             return {"Success": True}
         else:
@@ -120,7 +115,7 @@ def createHospital():
         return {"Success": False}
 
 
-@app.route("/operations/readOperations", methods=['POST'])
+@app.route("/operation/readOperations", methods=['POST'])
 def readOperations():
     address = request.json['address']
     hospital = list(db.collection("Hospitals").where("Address1", "==", address).stream())[0]
