@@ -120,6 +120,17 @@ def createHospital():
         return {"Success": False}
 
 
+@app.route("/operations/readOperations", methods=['POST'])
+def readOperations():
+    address = request.json['address']
+    hospital = list(db.collection("Hospitals").where("Address1", "==", address).stream())[0]
+    operations = list(hospital.get("Operations"))
+    operationArray = []
+    for operation in operations:
+        operationArray.append(db.collection("Operations").document(operation).get().to_dict())
+    return {"Success": True, "Info": operationArray}
+
+
 """
     READ OPERATIONS
 """
