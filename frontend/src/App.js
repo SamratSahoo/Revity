@@ -3,6 +3,7 @@ import './App.css';
 import Google from './GoogleMaps/Google';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import HomePage from './components/HomePage';
+import LoginPage from './components/LoginPage/LoginPage';
 
 function App() {
   return (

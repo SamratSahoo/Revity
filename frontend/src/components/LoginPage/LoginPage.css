@@ -1,0 +1,24 @@
+.login-grid{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.login-image{
+    object-fit: cover;
+    max-height: 100%;
+    width: 80%;
+    margin-left: 15%;
+    margin-top: 5%;
+    border-radius: 4%;
+}
+
+.login-box-background{
+    background-color: white;
+    width: 75%;
+    max-height: 75%;
+    margin-top: 20%;
+    margin-left: 15%;
+    border-radius: 4%;
+    box-shadow: 0 2px 4px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(104, 79, 79, 0.19);
+    max-height: 50%;
+}
