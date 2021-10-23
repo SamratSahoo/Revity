@@ -6,7 +6,8 @@
             "properties": {
                 "HospitalID": 123,
                 "HospitalName": "Mercy",
-                "Address": "424 Decatur St SE, Atlanta, GA 30312"
+                "Address": "424 Decatur St SE",
+                "Address2": "Atlanta, GA 30312"
             },
             "geometry": {
                 "type": "Point",
@@ -18,7 +19,8 @@
             "properties": {
                 "HospitalID": 456,
                 "HospitalName": "Fresenius",
-                "Address": "550 W Peachtree St NW, Atlanta, GA 30327"
+                "Address": "550 W Peachtree St NW",
+                "Address2": "Atlanta, GA 30327"
             },
             "geometry": {
                 "type": "Point",

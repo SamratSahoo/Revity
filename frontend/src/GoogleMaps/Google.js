@@ -10,26 +10,22 @@ import {
 
 import * as hospitalData from "./data/mockHospitalData.json"
 import mapStyles from '../mapStyles';
+
+import './Google.css';
+import useGeolocation from "./useGeoLocation"
   
-// const MapWithAMarker = withGoogleMap(props =>
-// <GoogleMap
-//     defaultZoom={8}
-//     defaultCenter={{ lat: -34.397, lng: 150.644 }}
-// >
-//     <Marker
-//     position={{ lat: -34.397, lng: 150.644 }}
-//     />
-// </GoogleMap>
-// );
+
 
 function Map() {
 
     const [curHospital, setHospital] = useState(null);
+    const location = useGeolocation();
 
     return (
         <GoogleMap
             defaultZoom={12}
-            defaultCenter={ { lat: 33.7, lng: -84.4}}
+            defaultCenter={location.loaded ? {lat: location.coordinates.lat, lng: location.coordinates.lng} 
+            : { lat: 33.7, lng: -84.4}}
             defaultOptions={{styles: mapStyles}}
         >
 
@@ -50,6 +46,13 @@ function Map() {
             />
         ))}
 
+        {location.loaded ? <Marker 
+                position= {{ 
+                    lat: location.coordinates.lat,
+                    lng: location.coordinates.lng
+                }} 
+        /> : console.log("User's Current Location not available")}
+
         {curHospital && (
             <InfoWindow
                 onCloseClick={() => {
@@ -63,6 +66,7 @@ function Map() {
                 <div>
                     <h2>{curHospital.properties.HospitalName}</h2>
                     <p>{curHospital.properties.Address}</p>
+                    <p>{curHospital.properties.Address2}</p>
                 </div>
             </InfoWindow>
         )}
