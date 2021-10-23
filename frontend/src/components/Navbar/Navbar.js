@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import { MenuItems } from "./MenuItems"
 import { Button } from "../Button"
 import './Navbar.css'
+import { withRouter } from 'react-router-dom';
 
 class Navbar extends Component {
     state = { clicked: false }
 
+
     handleClick = () => {
         this.setState({ clicked: !this.state.clicked })
+    }
+
+    changeHistory = () => {
+        this.props.history.push('/login');
     }
 
     render() {
@@ -28,10 +34,10 @@ class Navbar extends Component {
                         )
                     })}
                 </ul>
-                <Button>Register</Button>
+                <Button onClick={this.changeHistory.bind(this)}>Register</Button>
             </nav>
         )
     }
 }
 
-export default Navbar
+export default withRouter(Navbar)

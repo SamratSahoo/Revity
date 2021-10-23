@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import {
     withGoogleMap,
@@ -8,19 +8,28 @@ import {
     InfoWindow
 } from "react-google-maps";
 
-import * as hospitalData from "./data/mockHospitalData.json"
+// import * as hospitalData from "./data/mockHospitalData.json"
 import mapStyles from '../mapStyles';
 
 import './Google.css';
 import useGeolocation from "./useGeoLocation"
 import Navbar from '../components/Navbar/Navbar';
+import axios from 'axios';
   
 
+const baseURL = "http://revit-publi-1xstsu1e3rgne-1394708788.us-east-2.elb.amazonaws.com/";
 
 function Map() {
 
     const [curHospital, setHospital] = useState(null);
     const location = useGeolocation();
+    const [hospitalData, setHospitalData] = useState([]);
+
+    axios.get(baseURL+'hospital/readAllHospitals')
+        .then((response) => {
+            // console.log(response);
+            setHospitalData(response.data.Info)
+    })
 
     return (
         <GoogleMap
@@ -29,13 +38,15 @@ function Map() {
             : { lat: 33.785, lng: -84.398}}
             defaultOptions={{styles: mapStyles}}
         >
+        
+        {console.log(hospitalData)}
 
-        {hospitalData.features.map((hospital) => (
+        {hospitalData.map((hospital) => (
             <Marker 
-                key= {hospital.properties.HospitalID}
+                key= {hospital.id}
                 position= {{ 
-                    lat: hospital.geometry.coordinates[0],
-                    lng: hospital.geometry.coordinates[1]
+                    lat: hospital.Latitude,
+                    lng: hospital.Longitude
                 }} 
                 onClick={() => {
                     setHospital(hospital);
@@ -60,15 +71,15 @@ function Map() {
                     setHospital(null);
                 }}
                 position= {{
-                    lat: curHospital.geometry.coordinates[0],
-                    lng: curHospital.geometry.coordinates[1]  
+                    lat: curHospital.Latitude,
+                    lng: curHospital.Longitude  
                 }}
             >
                 <div>
-                    <h2>{curHospital.properties.HospitalName}</h2>
-                    <p>{curHospital.properties.Address}</p>
-                    <p>{curHospital.properties.Address2}</p>
-                    <p>{"Reviews: " + curHospital.properties.Reviews + "/5"}</p>
+                    <h2>{curHospital.Name}</h2>
+                    <p>{curHospital.Address1}</p>
+                    <p>{curHospital.Address2}</p>
+                    <p>{"Reviews: " + curHospital.Reviews + "/5"}</p>
                 </div>
             </InfoWindow>
         )}
