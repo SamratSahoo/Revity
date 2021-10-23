@@ -12,26 +12,6 @@ jobs:
     env:
       CI: false
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Build Site
-        working-directory: ./frontend
-        run: npm ci && npm run build
-      - name: Deploy Site to Firebase
-        working-directory: ./frontend
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_REVITY_329901 }}'
-          channelId: live
-          projectId: revity-329901
-
-jobs:
-  build_and_deploy:
-    runs-on: ubuntu-latest
-    env:
-      CI: false
-    steps:
       - uses: actions/checkout@v2
       - name: Clean Install
         working-directory: ./frontend
@@ -45,7 +25,7 @@ jobs:
       - name: Install Dependencies
         working-directory: ./frontend
         run: npm install
-      - name: Build Site
+      - name: Build
         working-directory: ./frontend
         run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
