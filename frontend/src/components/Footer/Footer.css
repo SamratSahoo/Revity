@@ -1,0 +1,79 @@
+.Footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-family: "Inter600";
+    font-size: 12px;
+    flex-flow: column;
+    /* background-color: rgba(42, 15, 146, 1); */
+    background-color: #6800FE;
+    padding: 0px 50px;
+}
+
+
+.FooterContent {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    place-items: start;
+    width: 100%;
+    margin: 30px 0px;
+    max-width: 1200px;
+    /* border: 3px solid black; */
+}
+
+.FooterSubContent {
+    border-top: 1px solid white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.FooterSocials {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    place-items: center;
+    gap: 10px;
+    font-size: 16px;
+}
+
+.FooterCol p {
+    margin: 15px 0px;
+}
+
+.FooterColHeader {
+    font-family: "Inter800";
+    font-size: 14px;
+}
+
+@media screen and (min-width: 720px) {
+    .FooterContent {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        place-items: start;
+        width: 100%;
+        margin: 30px 0px;
+        max-width: 1200px;
+        /* border: 3px solid black; */
+    }
+
+    .FooterColHeader {
+        font-size: 16px;
+    }
+
+    .FooterSocials, .FooterSubContent {
+        font-size: 18px;
+    }
+
+    .Footer {
+        font-size: 14px;
+    }
+
+    .FooterSocials {
+        gap: 20px;
+    }
+}
