@@ -1,3 +1,5 @@
+import React from 'react';
+import Navbar from "./components/Navbar/Navbar";
 import './App.css';
 import Google from './GoogleMaps/Google';
 
@@ -6,6 +8,7 @@ function App() {
     <div className="App">
         <div>Hello World</div>
         <Google />
+      <Navbar />
     </div>
   );
 }
