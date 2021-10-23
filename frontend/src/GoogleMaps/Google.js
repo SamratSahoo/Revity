@@ -25,7 +25,7 @@ function Map() {
         <GoogleMap
             defaultZoom={12}
             defaultCenter={location.loaded ? {lat: location.coordinates.lat, lng: location.coordinates.lng} 
-            : { lat: 33.7, lng: -84.4}}
+            : { lat: 33.768, lng: -84.398}}
             defaultOptions={{styles: mapStyles}}
         >
 
@@ -84,7 +84,7 @@ const Google = () => {
     // const [defaultCenter, setDefaultCenter] = useState(null)
 
     return (
-        <div style={{ width:"100vw", height: "100vh" }}>
+        <div style={{ width:"100vw", height: "100vh" }} className='Map'>
             {/* <MapWithAMarker
                 containerElement={<div style={{ height: `400px` }} />}
                 mapElement={<div style={{ height: `100%` }} />}
