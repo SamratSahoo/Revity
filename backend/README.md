@@ -63,4 +63,4 @@
 * **Return:**
     * `Success`: Whether the data was added successfully (Boolean)
     * `Info`: The hospital information for the hospital being searched
-* **Description:** GET request to see the hospital being searched
+* **Description:** POST request to see the hospital being searched
