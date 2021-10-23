@@ -3,6 +3,7 @@ import "./LoginPage.css";
 import Navbar from "../Navbar/Navbar";
 import loginImage from '../../../src/assets/login.svg';
 import LoginBox from "./LoginBox/LoginBox";
+import Footer from "../Footer/Footer";
 
 const LoginPage = () => {
     // constructor(){
@@ -17,6 +18,7 @@ const LoginPage = () => {
                     <LoginBox className="login-box-background">
 
                     </LoginBox>
+                
                 
                 </div>
             </div>

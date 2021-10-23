@@ -13,5 +13,10 @@ export const MenuItems = [
         title: 'Login',
         url: '/login',
         cName: 'nav-links'
+    },
+    {
+        title: 'Input',
+        url: '/input',
+        cName: 'nav-links'
     }
 ]
