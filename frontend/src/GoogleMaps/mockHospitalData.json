@@ -1,0 +1,27 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "HospitalID": 123,
+                "HospitalName": "Mercy"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [33.750931,-84.374542]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "HospitalID": 456,
+                "HospitalName": "Test"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [33.770000,-84.387460]
+            }
+        }
+    ]
+}
