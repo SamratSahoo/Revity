@@ -32,7 +32,7 @@
         {
             "type": "Feature",
             "properties": {
-                "HospitalID": 456,
+                "HospitalID": 789,
                 "HospitalName": "WellStar Georgia Hospitalists Group, LLC",
                 "Address": "265 Boulevard NE #2",
                 "Address2": "Atlanta, GA 30312", 
@@ -46,7 +46,7 @@
         {
             "type": "Feature",
             "properties": {
-                "HospitalID": 456,
+                "HospitalID": 987,
                 "HospitalName": "Fresenius Medical Care At Kindred Hospital",
                 "Address": "705 Juniper St NE",
                 "Address2": "Atlanta, GA 30315", 
@@ -60,7 +60,7 @@
         {
             "type": "Feature",
             "properties": {
-                "HospitalID": 456,
+                "HospitalID": 654,
                 "HospitalName": "Piedmont Atlanta Hospital",
                 "Address": "1968 Peachtree Rd NW",
                 "Address2": "Atlanta, GA 30309", 
@@ -74,7 +74,7 @@
         {
             "type": "Feature",
             "properties": {
-                "HospitalID": 456,
+                "HospitalID": 321,
                 "HospitalName": "Atlanta Medical Center",
                 "Address": "303 Parkway Dr NE",
                 "Address2": "Atlanta, GA 30312",
@@ -88,7 +88,7 @@
         {
             "type": "Feature",
             "properties": {
-                "HospitalID": 456,
+                "HospitalID": 565,
                 "HospitalName": "Whitehead Building (Health Services)",
                 "Address": "740 Ferst Dr NW",
                 "Address2": "Atlanta, GA 30332", 
@@ -102,7 +102,7 @@
         {
             "type": "Feature",
             "properties": {
-                "HospitalID": 456,
+                "HospitalID": 787,
                 "HospitalName": "Hughes Spalding Hospital",
                 "Address": "35 Jesse Hill Jr Dr SE",
                 "Address2": "Atlanta, GA 30303", 
@@ -115,7 +115,7 @@
         }, {
             "type": "Feature",
             "properties": {
-                "HospitalID": 456,
+                "HospitalID": 243,
                 "HospitalName": "Emory Long-Term Acute Care",
                 "Address": "450 N Candler St",
                 "Address2": "Decatur, GA 30030", 
@@ -128,7 +128,7 @@
         }, {
             "type": "Feature",
             "properties": {
-                "HospitalID": 456,
+                "HospitalID": 759,
                 "HospitalName": "Piedmont West",
                 "Address": "1800 Howell Mill Rd",
                 "Address2": "Atlanta, GA 30318", 
