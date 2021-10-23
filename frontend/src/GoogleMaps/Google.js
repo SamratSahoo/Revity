@@ -8,7 +8,8 @@ import {
     InfoWindow
 } from "react-google-maps";
 
-import * as hospitalData from "./mockHospitalData.json"
+import * as hospitalData from "./data/mockHospitalData.json"
+import mapStyles from '../mapStyles';
   
 // const MapWithAMarker = withGoogleMap(props =>
 // <GoogleMap
@@ -29,6 +30,7 @@ function Map() {
         <GoogleMap
             defaultZoom={12}
             defaultCenter={ { lat: 33.7, lng: -84.4}}
+            defaultOptions={{styles: mapStyles}}
         >
 
         {hospitalData.features.map((hospital) => (
@@ -40,6 +42,10 @@ function Map() {
                 }} 
                 onClick={() => {
                     setHospital(hospital);
+                }}
+                icon={{
+                    url: `/hospital.svg`,
+                    scaledSize: new window.google.maps.Size(25, 25)
                 }}
             />
         ))}
@@ -54,7 +60,10 @@ function Map() {
                     lng: curHospital.geometry.coordinates[1]  
                 }}
             >
-                <div>Park Info Testing</div>
+                <div>
+                    <h2>{curHospital.properties.HospitalName}</h2>
+                    <p>{curHospital.properties.Address}</p>
+                </div>
             </InfoWindow>
         )}
 
@@ -63,6 +72,8 @@ function Map() {
 }
 
 const WrappedMap = withScriptjs(withGoogleMap(Map));
+
+
 
 const Google = () => {
 
@@ -90,4 +101,3 @@ const Google = () => {
 export default Google
 
 
-// key=AIzaSyC2LtPZD_8JmLrUobVRoQKy--b_fn2cNVk
