@@ -28,6 +28,18 @@ jobs:
       - name: Build
         working-directory: ./frontend
         run: npm run build
+      - name: Create env file
+        working-directory: ./frontend
+        run: |
+          touch .env
+          echo REACT_APP_MAP_APIKEY=${{ secrets.REACT_APP_MAP_APIKEY }} >> .env
+          echo REACT_APP_FIREBASE_API_KEY==${{ secrets.REACT_APP_FIREBASE_API_KEY }} >> .env
+          echo REACT_APP_FIREBASE_AUTH_DOMAIN==${{ secrets.REACT_APP_FIREBASE_AUTH_DOMAIN }} >> .env
+          echo REACT_APP_FIREBASE_PROJECT_ID==${{ secrets.REACT_APP_FIREBASE_PROJECT_ID }} >> .env
+          echo REACT_APP_FIREBASE_STORAGE_BUCKET==${{ secrets.REACT_APP_FIREBASE_STORAGE_BUCKET }} >> .env
+          echo REACT_APP_FIREBASE_MESSAGE_SENDER_ID==${{ secrets.REACT_APP_FIREBASE_MESSAGE_SENDER_ID }} >> .env
+          echo REACT_APP_FIREBASE_MESSAGE_APP_ID==${{ secrets.REACT_APP_FIREBASE_MESSAGE_APP_ID }} >> .env
+          echo REACT_APP_FIREBASE_MEASUREMENT_ID==${{ secrets.REACT_APP_FIREBASE_MEASUREMENT_ID }} >> .env
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
