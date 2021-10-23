@@ -14,7 +14,7 @@ const Body = () => {
                         <ul>
                         </ul>
                         <div class="btn-section d-flex">
-                            <a href="#" class="btn-start">Get started</a>
+                            <a href="/login" class="btn-start">Get started</a>
                         </div>
                     </div>
                     <div class="home-image">
