@@ -1,10 +1,14 @@
 from flask import Flask, request
 import os
+
+from flask_cors import CORS
 from google.cloud import firestore
 
 app = Flask(__name__)
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.getcwd() + os.sep + "firebase_credentials.json"
 db = firestore.Client()
+cors = CORS(app, resources={
+    r"/*": {"origins": ["*"]}})
 
 """
     HEALTH CHECKS
@@ -29,9 +33,12 @@ def createUser():
         # gender = request.json["gender"]
         # age = request.json["age"]
         socialId = request.json["socialId"]
-        if len(list(db.collection("Users").where("email", "==", email).stream())) > 0:
-            return {"Success": True, "Info": list(db.collection("Users").where("email", "==", email).stream())[0].to_dict()}
+        if len(list(db.collection("Users").where("Email", "==", email).stream())) > 0:
+            print("HELLO WORLD")
+            return {"Success": True,
+                    "Info": list(db.collection("Users").where("Email", "==", email).stream())[0].to_dict()}
         else:
+            print("BYE WORLD")
             document = db.collection("Users").document()
             document.set({
                 "Name": name,
