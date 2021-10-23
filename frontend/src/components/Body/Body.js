@@ -9,8 +9,7 @@ const Body = () => {
                     <div class="col-left">
                         <h1>Affordability <br />
                             At Your Fingertips</h1>
-                        <p>Optimize your time and maximize your savings <br />
-                            with Revity</p>
+                        <p>Revity shows you the closest hospitals nearby with crowdfunded surgery prices across various insurance providers, optimizing your time and maximizing savings in times of crisis.</p>
                         <ul>
                         </ul>
                         <div class="btn-section d-flex">
