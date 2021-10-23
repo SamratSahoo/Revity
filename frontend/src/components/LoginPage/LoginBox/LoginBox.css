@@ -7,7 +7,7 @@
 .header-text{
     font-size: 2em;
     text-align: center;
-    margin-top: 4%;
+    margin-top: 8.5%;
     font-weight: 900;
     font-family: 'Montserrat', sans-serif;
 
@@ -16,14 +16,39 @@
 .subheader-text{
     font-size: 1.3em;
     text-align: center;
-    margin-top: 3%;
+    margin-top: 4%;
 }
 
 .google-button{
-    background-color: gainsboro;
+    display: flex;
+    align-items: center;
+    background-color: white;
     height: 15%;
     max-width: 80%;
     margin: auto;
-    margin-top: 5%;
-    border-radius: 1%;
+    margin-top: 6%;
+    border-radius: 2%;
+    box-shadow: 0 8px 12px 0 rgba(32, 32, 32, 0.2), 0 3px 10px 0 rgba(104, 79, 79, 0.19);
+    cursor: pointer;
+}
+
+.login-text{
+    text-align: center;
+    margin-left: 5%;
+    font-size: 1.5em;
+    font-weight: 800;
+    align-items: center;
+}
+
+.google-image{
+    object-fit: cover;
+    max-height: 70%;
+    margin-left: 25%;
+
+}
+
+.tos-text{
+    text-align: center;
+    font-size: 1em;
+    margin-top: 6%;
 }
