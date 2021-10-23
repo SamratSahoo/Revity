@@ -30,7 +30,7 @@
     * `insurance`: Insurance provider (String)
     * `userId`: Unique user id of the user (String)
     * `operationName`: Name of operation being conducted (String)
-    * `hospitalId`: Id of the hospital the operation is being added to (String)
+    * `hospitalAddress`: Address of the hospital the operation is being added to (String)
 * **Return:**
     * `Success`: Whether the data was added successfully (Boolean)
 * **Description:** POST request to add a new operation to a specified hospital
