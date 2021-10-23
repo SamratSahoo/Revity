@@ -56,8 +56,8 @@ const LoginBox = (props) => {
                 }
             }).then((response) => {
                 console.log(response);
+                window.sessionStorage.setItem("UserId", response.data.Info.id);
             });
-
         //    console.log(props)
             history.push('/explore');
 
