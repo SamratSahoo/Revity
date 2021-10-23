@@ -1,0 +1,29 @@
+.login-box-grid{
+    display: grid;
+    grid-template-rows: 25% 25% 25% 25%;
+
+}
+
+.header-text{
+    font-size: 2em;
+    text-align: center;
+    margin-top: 4%;
+    font-weight: 900;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.subheader-text{
+    font-size: 1.3em;
+    text-align: center;
+    margin-top: 3%;
+}
+
+.google-button{
+    background-color: gainsboro;
+    height: 15%;
+    max-width: 80%;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 1%;
+}
