@@ -17,7 +17,7 @@ cors = CORS(app, resources={
 
 @app.route("/")
 def test():
-    return {"Hello": "World", "Version": 1, "Success": True}
+    return {"Hello": "World", "Version": 2, "Success": True}
 
 
 """
