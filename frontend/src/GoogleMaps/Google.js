@@ -8,7 +8,6 @@ import {
     InfoWindow
 } from "react-google-maps";
 
-// import * as hospitalData from "./data/mockHospitalData.json"
 import mapStyles from '../mapStyles';
 
 import './Google.css';
@@ -27,7 +26,6 @@ function Map() {
 
     axios.get(baseURL+'hospital/readAllHospitals')
         .then((response) => {
-            // console.log(response);
             setHospitalData(response.data.Info)
     })
 
