@@ -62,27 +62,32 @@ def createOperation():
         insurance = request.json['insurance']
         userId = request.json['userId']
         operationName = request.json["operationName"]
-        hospitalId = request.json['id']
+        hospitalAddress = request.json['hospitalAddress']
+        hospitalId = list(db.collection("Hospitals").where("Address1", "==", hospitalAddress).stream())[
+            0].to_dict().get('id')
 
-        operationDocument = db.collection("Operations").document()
-        operationDocument.set({
-            "BeforePrice": priceBefore,
-            "AfterPrice": priceAfter,
-            "Insurance": insurance,
-            "UserId": userId,
-            "OperationName": operationName,
-            "HospitalId": hospitalId,
-            "id": operationDocument.id
-        })
+        if hospitalId != None:
+            operationDocument = db.collection("Operations").document()
+            operationDocument.set({
+                "BeforePrice": priceBefore,
+                "AfterPrice": priceAfter,
+                "Insurance": insurance,
+                "UserId": userId,
+                "OperationName": operationName,
+                "HospitalId": hospitalId,
+                "id": operationDocument.id
+            })
 
-        hospitalCollection = db.collection("hospitalDocument")
-        operationsUpdate = hospitalCollection.document(hospitalId).get().to_dict().get("Operations") \
-            .append(operationDocument.id)
+            hospitalCollection = db.collection("hospitalDocument")
+            operationsUpdate = hospitalCollection.document(hospitalId).get().to_dict().get("Operations") \
+                .append(operationDocument.id)
 
-        hospitalCollection.document(hospitalId).update({
-            "Operations": operationsUpdate
-        })
-        return {"Success": True}
+            hospitalCollection.document(hospitalId).update({
+                "Operations": operationsUpdate
+            })
+            return {"Success": True}
+        else:
+            return {"Success": False}
     except Exception as e:
         print(e)
         return {"Success": False}
