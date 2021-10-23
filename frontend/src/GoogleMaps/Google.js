@@ -24,9 +24,9 @@ function Map() {
 
     return (
         <GoogleMap
-            defaultZoom={12}
+            defaultZoom={14}
             defaultCenter={location.loaded ? {lat: location.coordinates.lat, lng: location.coordinates.lng} 
-            : { lat: 33.768, lng: -84.398}}
+            : { lat: 33.788, lng: -84.398}}
             defaultOptions={{styles: mapStyles}}
         >
 
@@ -68,6 +68,7 @@ function Map() {
                     <h2>{curHospital.properties.HospitalName}</h2>
                     <p>{curHospital.properties.Address}</p>
                     <p>{curHospital.properties.Address2}</p>
+                    <p>{"Reviews: " + curHospital.properties.Reviews + "/5"}</p>
                 </div>
             </InfoWindow>
         )}
