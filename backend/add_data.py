@@ -150,7 +150,8 @@ if __name__ == '__main__':
     for data in jsonData[0]['features']:
         hospInfo = {
             "name": data['properties']['HospitalName'],
-            "address": data['properties']['Address'] + " " + data['properties']['Address2'],
+            "address1": data['properties']['Address'],
+            "address2": data['properties']['Address2'],
             "latitude": data['geometry']['coordinates'][0],
             "longitude": data['geometry']['coordinates'][1],
             "review": data['properties']['Reviews']

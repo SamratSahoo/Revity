@@ -92,7 +92,8 @@ def createOperation():
 def createHospital():
     try:
         name = request.json["name"]
-        address = request.json['address']
+        address = request.json['address1']
+        address2 = request.json["address2"]
         longitude = request.json["longitude"]
         latitude = request.json['latitude']
         review = request.json['review']
@@ -100,7 +101,8 @@ def createHospital():
         document = db.collection("Hospitals").document()
         document.set({
             "Name": name,
-            "Address": address,
+            "Address1": address,
+            "Address2": address2,
             "Longitude": longitude,
             "Latitude": latitude,
             "Reviews": review,
