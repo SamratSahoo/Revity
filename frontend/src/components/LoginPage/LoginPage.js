@@ -3,6 +3,7 @@ import "./LoginPage.css";
 import Navbar from "../Navbar/Navbar";
 import loginImage from '../../../src/assets/login.svg';
 import LoginBox from "./LoginBox/LoginBox";
+import Footer from "../Footer/Footer";
 
 class LoginPage extends Component {
     constructor(){
@@ -18,6 +19,7 @@ class LoginPage extends Component {
                     <LoginBox className="login-box-background">
                         
                     </LoginBox>
+                
                 
                 </div>
             </div>
