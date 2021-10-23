@@ -15,8 +15,8 @@
 * **Parameters:**
     * `name`: Name of user (String)
     * `email`: Email of user (String)
-    * `gender`: Gender of user (String)
-    * `age`: Age of user (Number)
+    * `gender`: Gender of user (String) -- NOT BEING COLLECTED NOW
+    * `age`: Age of user (Number) -- NOT BEING COLLECTED NOW
     * `socialId`: Social Id of user -- obtained via firebase google login (String)
 * **Return:**
     * `Success`: Whether the data was added successfully (Boolean)

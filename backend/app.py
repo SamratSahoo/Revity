@@ -26,23 +26,25 @@ def createUser():
     try:
         name = request.json["name"]
         email = request.json["email"]
-        gender = request.json["gender"]
-        age = request.json["age"]
+        # gender = request.json["gender"]
+        # age = request.json["age"]
         socialId = request.json["socialId"]
-
-        document = db.collection("Users").document()
-        document.set({
-            "Name": name,
-            "Email": email,
-            "Gender": gender,
-            "Age": age,
-            "SocialId": socialId,
-            "id": document.id
-        })
-        return {"Success": True}
+        if len(list(db.collection("Users").where("email", "==", email).stream())) > 0:
+            return {"Success": True, "Info": list(db.collection("Users").where("email", "==", email).stream())[0].to_dict()}
+        else:
+            document = db.collection("Users").document()
+            document.set({
+                "Name": name,
+                "Email": email,
+                "Gender": "",
+                "Age": -1,
+                "SocialId": socialId,
+                "id": document.id
+            })
+            return {"Success": True, "Info": document.get().to_dict()}
     except Exception as e:
         print(e)
-        return {"Success": False}
+        return {"Success": False, "Info": None}
 
 
 @app.route("/operation/addOperation", methods=['POST'])
@@ -86,6 +88,7 @@ def createHospital():
         address = request.json['address']
         longitude = request.json["longitude"]
         latitude = request.json['latitude']
+        review = request.json['review']
 
         document = db.collection("Hospitals").document()
         document.set({
@@ -93,7 +96,7 @@ def createHospital():
             "Address": address,
             "Longitude": longitude,
             "Latitude": latitude,
-            "Reviews": [],
+            "Reviews": review,
             "Operations": [],
             "id": document.id
         })
