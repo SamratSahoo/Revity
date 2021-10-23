@@ -26,7 +26,7 @@ function Map() {
         <GoogleMap
             defaultZoom={14}
             defaultCenter={location.loaded ? {lat: location.coordinates.lat, lng: location.coordinates.lng} 
-            : { lat: 33.788, lng: -84.398}}
+            : { lat: 33.785, lng: -84.398}}
             defaultOptions={{styles: mapStyles}}
         >
 
