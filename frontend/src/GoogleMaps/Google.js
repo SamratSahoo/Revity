@@ -13,6 +13,7 @@ import mapStyles from '../mapStyles';
 
 import './Google.css';
 import useGeolocation from "./useGeoLocation"
+import Navbar from '../components/Navbar/Navbar';
   
 
 
@@ -84,20 +85,23 @@ const Google = () => {
     // const [defaultCenter, setDefaultCenter] = useState(null)
 
     return (
-        <div style={{ width:"100vw", height: "100vh" }} className='Map'>
-            {/* <MapWithAMarker
-                containerElement={<div style={{ height: `400px` }} />}
-                mapElement={<div style={{ height: `100%` }} />}
-            /> */}
+        <div>
+            <Navbar />
+            <div style={{ width:"100vw", height: "100vh" }} className='Map'>
+                {/* <MapWithAMarker
+                    containerElement={<div style={{ height: `400px` }} />}
+                    mapElement={<div style={{ height: `100%` }} />}
+                /> */}
 
-            <WrappedMap
-                googleMapURL={`https://maps.googleapis.com/maps/api/js?libraries=geometry,drawing,places&key=${
-                    process.env.REACT_APP_MAP_APIKEY
-                }`}
-                loadingElement={<div style={{height: "100%"}} />}
-                containerElement={<div style={{height: "100%"}} />}
-                mapElement={<div style={{height: "100%"}} />}
-            />
+                <WrappedMap
+                    googleMapURL={`https://maps.googleapis.com/maps/api/js?libraries=geometry,drawing,places&key=${
+                        process.env.REACT_APP_MAP_APIKEY
+                    }`}
+                    loadingElement={<div style={{height: "100%"}} />}
+                    containerElement={<div style={{height: "100%"}} />}
+                    mapElement={<div style={{height: "100%"}} />}
+                />
+            </div>
         </div>
     )
 }
