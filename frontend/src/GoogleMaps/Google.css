@@ -2,3 +2,13 @@
     margin: auto;
     border-top:5px solid black;
 }
+
+.details {
+    display: flex;
+    flex-direction: row;
+    float: right;
+}
+
+.details:hover {
+    cursor: pointer;
+}
