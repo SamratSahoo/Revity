@@ -1,0 +1,42 @@
+/* .login-box-grid{
+    display: grid;
+    grid-template-rows: 25% 25% 25% 25%;
+} */
+
+.DetailTitle {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.boxes {
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+}
+
+.shadow {
+    display: flex;
+    flex-direction: column;
+    flex: 30%;
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 -6px 0 #fff, 0 1px 6px rgba(0,0,0, .35);
+}
+
+.shadowRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.shadowRow > h4 {
+    padding: 10px;
+}
+
+
+.btn-section {
+    justify-content: center;
+    margin-bottom: 10px;
+}

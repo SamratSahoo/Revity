@@ -73,11 +73,19 @@ function Map() {
                     lng: curHospital.Longitude  
                 }}
             >
-                <div>
+                <div className="elements">
                     <h2>{curHospital.Name}</h2>
                     <p>{curHospital.Address1}</p>
+                    {window.sessionStorage.setItem("HospitalAddress", curHospital.Address1)}
+                    {window.sessionStorage.setItem("HospitalName", curHospital.Name)}
                     <p>{curHospital.Address2}</p>
                     <p>{"Reviews: " + curHospital.Reviews + "/5"}</p>
+                    <div className="details">
+                        <a href="/details">Details</a>
+                        <a href="/details">
+                            <img src='arrow_right.svg' />
+                        </a>
+                    </div>
                 </div>
             </InfoWindow>
         )}
