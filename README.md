@@ -1,3 +1,5 @@
+# Revity
+
 ## Inspiration
 This application stemmed from one of Pranay’s close family members falling down and breaking his collarbone, which caused his family to rush to the nearest hospital. There, not only did they receive subpar service, but they were also charged with steep medical bills. Little did they know that the hospital in a nearby sector of town had much better ratings for the doctor but also much more affordable prices. Since Pranay's family was deeply troubled by this, they wanted to reduce people facing a similar situation. Therefore, we brainstormed an intuitive solution to combat similar situations in the real world.
 
